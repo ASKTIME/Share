@@ -17,8 +17,8 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 public class Login extends AppCompatActivity {
 
-    private EditText mUsername,mPassword;
-    private Button mLogin,mRegister;
+    private EditText mUsername, mPassword;
+    private Button mLogin, mRegister;
 
     private ImageView lookps;
 
@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
         mUsername = findViewById(R.id.username);
         mPassword = findViewById(R.id.password);
         mLogin = findViewById(R.id.login);
-        mRegister= findViewById(R.id.register);
+        mRegister = findViewById(R.id.register);
        // lookps = findViewById(R.id.lookps);
 
       /*  lookps.setOnClickListener(new View.OnClickListener() {
@@ -86,11 +86,11 @@ public class Login extends AppCompatActivity {
         if (isPswVisible){
             lookps.setImageResource(R.drawable.eyeopen);
             HideReturnsTransformationMethod method = HideReturnsTransformationMethod.getInstance();
-            password.setTransformationMethod(method);
+            mPassword.setTransformationMethod(method);
         }else {
             lookps.setImageResource(R.drawable.eyeclose);
             PasswordTransformationMethod method = PasswordTransformationMethod.getInstance();
-            password.setTransformationMethod(method);
+            mPassword.setTransformationMethod(method);
         }
     }*/
 

@@ -16,7 +16,7 @@
     <ImageView
         android:layout_width="140dp"
         android:layout_marginTop="18dp"
-        android:src="@color/colorAccent"
+        android:src="@mipmap/share"
         android:layout_height="140dp" />
 
 </LinearLayout>
