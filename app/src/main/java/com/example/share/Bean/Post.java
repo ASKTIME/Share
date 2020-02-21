@@ -9,7 +9,15 @@ public class Post extends BmobObject {
     private User author;
 
     //帖子对应的信息
-    private String title, content, nickname;
+    private String title, content, nickname,username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public User getAuthor() {
         return author;

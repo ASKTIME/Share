@@ -30,11 +30,9 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int Normal_Type = 0;
     private final int Foot_Type = 1;
 
-    private int Max_Num = 15;
+    private int Max_Num = 15; //预加载的数据一共15条
 
     private boolean isFootView = true;  //是否有footView
-
-
 
     //创建构造方法
     public HomeAdapter(Context mContext, List<Post> mData){
@@ -68,7 +66,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Max_Num = 8;
+                    Max_Num += 8;
                     notifyDataSetChanged();
                 }
                 //设置时间间隔为两秒
@@ -76,7 +74,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }else {
             //这是ordinary_item的内容
             final  RecyclerViewHolder recyclerViewHolder = (RecyclerViewHolder) viewHolder;//进行强制转换
-            Post post = mData.get(i);
+            final Post post = mData.get(i);
+            recyclerViewHolder.mUsername.setText(post.getUsername());
             recyclerViewHolder.mNickname.setText(post.getNickname());
             recyclerViewHolder.mContent.setText(post.getContent());
             recyclerViewHolder.mTime.setText(post.getCreatedAt());
@@ -86,14 +85,17 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     //点击之后拿到此时的一个位置
-                    int postion = recyclerViewHolder.getAdapterPosition();
+                    int position = recyclerViewHolder.getAdapterPosition();
 
-                    //如果用户没有登录
+                    //如果用户登录
                     if (BmobUser.getCurrentUser(BmobUser.class) != null) {
                         //点击recyclerView会有一个接受的，会跳转 接收  accept
                         Intent intent = new Intent(mContext,Accept.class);
                         //并且要把参数带进去
-                        intent.putExtra("id",mData.get(postion).getObjectId());
+                        intent.putExtra("username",post.getUsername());
+                        intent.putExtra("content",post.getContent());
+                        intent.putExtra("time",post.getCreatedAt());
+                        intent.putExtra("id",mData.get(position).getObjectId());
                         mContext.startActivity(intent);
 
                     }else {
@@ -103,17 +105,11 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     }
                 }
             });
-
         }
-
-
-
     }
 
 
     //因为是本身的方法，所以要重写一下
-
-
     @Override
     public int getItemViewType(int position) {
         //进行一下判断,到底部返回底部提示。。。。
@@ -122,7 +118,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }else {
             return Normal_Type;
         }
-
     }
 
     @Override
@@ -140,19 +135,19 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public  TextView mContent;
         public  TextView mTime;
         public  TextView mLoading;
+        public TextView mUsername;
 
         public RecyclerViewHolder(View itemView, int view_type) {
             super(itemView);
-
             //进行控件的绑定
             if (view_type == Normal_Type) {
+                mUsername = itemView.findViewById(R.id.username);
                 mNickname = itemView.findViewById(R.id.nickname);
                 mContent = itemView.findViewById(R.id.content);
                 mTime = itemView.findViewById(R.id.time);
             }else if (view_type == Foot_Type){
                 mLoading = itemView.findViewById(R.id.food_text);
             }
-
         }
     }
 }

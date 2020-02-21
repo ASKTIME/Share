@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
     @Override
     public void onTabReselected(int position) {
-
+        mViewpager.setCurrentItem(position);
     }
 
     @Override
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
     @Override
     public void onPageSelected(int i) {
+        //选择到哪一个tab
         mBottomNavigationBar.selectTab(i);
     }
 

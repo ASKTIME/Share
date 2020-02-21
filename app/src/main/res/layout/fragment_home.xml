@@ -1,40 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:fitsSystemWindows="true"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/fragment_home"
-            android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
-            android:textSize="35sp"
-            android:text="首页"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_scrollFlags="scroll|enterAlways">
 
+            <TextView
+                android:id="@+id/fragment_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:text="首页"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/loading_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="加载中..."
+                    android:textColor="@color/red"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/welcome_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WELCOME TO YOU"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+            </LinearLayout>
         </LinearLayout>
     </android.support.design.widget.AppBarLayout>
 
 
     <LinearLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe"
@@ -45,8 +69,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                android:layout_height="wrap_content" />
 
 
         </android.support.v4.widget.SwipeRefreshLayout>

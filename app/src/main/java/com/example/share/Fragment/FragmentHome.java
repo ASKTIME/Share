@@ -15,14 +15,17 @@ import android.widget.Toast;
 
 import com.example.share.Adapter.HomeAdapter;
 import com.example.share.Bean.Post;
+import com.example.share.Bean.User;
 import com.example.share.R;
 
 import java.util.List;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.QueryListener;
 
 public class FragmentHome extends Fragment {
 
@@ -31,6 +34,8 @@ public class FragmentHome extends Fragment {
     private RecyclerView mRecyclerView;
     List<Post> mData;
     private HomeAdapter mHomeAdapter;
+    private TextView mLoadingUser;
+    private TextView mWelcomeUser;
 
     @Nullable
     @Override
@@ -66,7 +71,23 @@ public class FragmentHome extends Fragment {
             }
         });
 
-
+        //用户加载中。。。 xxx欢迎您
+        //获取现在的用户
+        BmobUser bmobUser = BmobUser.getCurrentUser(User.class);//User.class  继承关系
+        //拿到ID
+        final String userId = bmobUser.getObjectId();
+        BmobQuery<User> userBmobQuery = new BmobQuery<>();
+        userBmobQuery.getObject(userId, new QueryListener<User>() {
+            @Override
+            public void done(User user, BmobException e) {
+                if (e == null) {
+                    mLoadingUser.setText(user.getUsername());
+                }else {
+                    mWelcomeUser.setText(" ");
+                    mLoadingUser.setText(" ");
+                }
+            }
+        });
 
     }
 
@@ -102,5 +123,7 @@ public class FragmentHome extends Fragment {
         mRecyclerView = getActivity().findViewById(R.id.recycler_view);
         mSwipeRefreshLayout = getActivity().findViewById(R.id.swipe);
         mTextView = getActivity().findViewById(R.id.fragment_home);
+        mLoadingUser = getActivity().findViewById(R.id.loading_user);
+        mWelcomeUser = getActivity().findViewById(R.id.welcome_user);
     }
 }
