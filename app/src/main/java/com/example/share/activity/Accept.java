@@ -74,8 +74,8 @@ public class Accept extends AppCompatActivity {
             @Override
             public void done(Post post, BmobException e) {
                 if (e==null) {
-                    mUsername.setText(post.getUsername());
-                    mContent.setText(post.getContent());
+                    mCommunity_name.setText(post.getUsername());
+                    mCommunity_info.setText(post.getContent());
                     mTime.setText(post.getCreatedAt());
                 }else {
                     Toast.makeText(Accept.this, "获取失败", Toast.LENGTH_SHORT).show();

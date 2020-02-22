@@ -47,7 +47,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         //获取到普通的item
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.ordinary_item,viewGroup,false);
-        View footView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.ordinary_item,viewGroup,false);
+        View footView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.foot_item,viewGroup,false);
         if (i == Foot_Type) {
             return new RecyclerViewHolder(footView, Foot_Type);
         }else {

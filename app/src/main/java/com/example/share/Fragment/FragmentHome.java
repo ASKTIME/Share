@@ -95,7 +95,7 @@ public class FragmentHome extends Fragment {
         //对recyclerView的视图进行刷新
         //从比目后台查询一些信息
         //通过Post来进行
-        BmobQuery<Post> postBmobQuery = new BmobQuery<Post>();
+        BmobQuery<Post> postBmobQuery = new BmobQuery<>();
         //逆序，从现在到以前
         postBmobQuery.order("-createdAt");
         postBmobQuery.setLimit(1000);

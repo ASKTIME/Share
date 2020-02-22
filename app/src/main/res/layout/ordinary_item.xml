@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="@drawable/shape_ordinary"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     android:layout_height="wrap_content">
 
     <!--普通的样式-->
