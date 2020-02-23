@@ -11,6 +11,17 @@ public class Community extends BmobObject {
 
     private String info;
 
+
+    private String onwer;
+
+    public String getOnwer() {
+        return onwer;
+    }
+
+    public void setOnwer(String onwer) {
+        this.onwer = onwer;
+    }
+
     public User getUser() {
         return user;
     }

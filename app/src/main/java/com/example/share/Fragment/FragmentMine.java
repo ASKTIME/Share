@@ -24,7 +24,7 @@ import cn.bmob.v3.listener.QueryListener;
 public class FragmentMine extends Fragment {
 
     private Button mLogOut;
-    private TextView mMineNickname;
+  //  private TextView mMineNickname;
     private TextView mMineUsername;
 
     @Nullable
@@ -73,7 +73,7 @@ public class FragmentMine extends Fragment {
             public void done(User user, BmobException e) {
                 if (e ==null) {
                     mMineUsername.setText(user.getUsername());
-                    mMineNickname.setText(user.getNickname());
+                   // mMineNickname.setText(user.getNickname());
 
                 }else{
                     Toast.makeText(getActivity(), "加载失败...", Toast.LENGTH_SHORT).show();
@@ -84,7 +84,7 @@ public class FragmentMine extends Fragment {
 
     private void initView() {
         mMineUsername = getActivity().findViewById(R.id.mine_username);
-        mMineNickname = getActivity().findViewById(R.id.mine_nickname);
+      //  mMineNickname = getActivity().findViewById(R.id.mine_nickname);
         mLogOut = getActivity().findViewById(R.id.login_out);
     }
 }

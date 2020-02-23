@@ -34,6 +34,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -60,9 +61,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginRight="25dp"
             android:layout_marginBottom="25dp"
-            android:clickable="true"
             android:backgroundTint="@color/red"
-            app:srcCompat="@drawable/add" />
+            android:clickable="true"
+            android:src="@drawable/add" />
 
     </RelativeLayout>
 

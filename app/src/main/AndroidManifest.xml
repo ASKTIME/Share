@@ -44,6 +44,8 @@
         <activity android:name=".activity.Login" />
         <activity android:name=".activity.Register" />
         <activity android:name=".activity.Accept" />
+        <activity android:name=".activity.PushContent" />
+        <activity android:name=".activity.PushCommunity" />
     </application>
 
 

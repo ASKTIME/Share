@@ -46,8 +46,9 @@
     <color name="white">#ffffff</color>
 
     <color name="black">#000000</color>
+    <color name="gray">#c9c9c9</color>
 
-    <color name="blue">#0000ff</color>
+    <color name="blue">#608dfa</color>
 
     <color name="trans">#00ffffff</color>
 
