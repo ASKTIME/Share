@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:visibility="gone"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:id="@+id/my_push_collection_empty"
+        android:text="空空如也，快去发布帖子吧"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:visibility="gone"
+        android:id="@+id/fragment_my_push_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_my_push_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

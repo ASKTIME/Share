@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/my_push_community_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/back"
+                android:tint="#000" />
+
+            <TextView
+                android:id="@+id/hot_news"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:paddingLeft="15dp"
+                android:text="我的论坛"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+
+
+        </android.support.v7.widget.Toolbar>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/my_push_community_empty"
+        android:visibility="gone"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="你还没创建过论坛，快去创建一个吧"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:visibility="gone"
+        android:id="@+id/my_push_community_swipe"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
+            android:id="@+id/my_push_community_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

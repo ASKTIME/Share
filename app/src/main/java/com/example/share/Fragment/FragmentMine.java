@@ -9,12 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.share.Bean.User;
 import com.example.share.R;
 import com.example.share.activity.Login;
+import com.example.share.activity.MyCollection;
+import com.example.share.activity.MyCommunity;
+import com.example.share.activity.MyInfo;
+import com.example.share.activity.MyPush;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -26,6 +31,10 @@ public class FragmentMine extends Fragment {
     private Button mLogOut;
   //  private TextView mMineNickname;
     private TextView mMineUsername;
+    private LinearLayout mMyinfo;
+    private LinearLayout mMyPush;
+    private LinearLayout mMy_community;
+    private LinearLayout mMy_collection;
 
     @Nullable
     @Override
@@ -61,6 +70,39 @@ public class FragmentMine extends Fragment {
                getActivity().finish();
             }
         });
+
+        //监听点击我的信息的动作
+        mMyinfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //跳转我的信息界面
+                startActivity(new Intent(getActivity(),MyInfo.class));
+            }
+        });
+
+        mMyPush.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),MyPush.class));
+            }
+        });
+
+        //监听点击我的论坛的动作
+        mMy_community.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),MyCommunity.class));
+            }
+        });
+
+        //监听点击我的收藏的动作
+        mMy_collection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(getActivity(),MyCollection.class));
+            }
+        });
+
     }
 
     private void getMyInfo() {
@@ -86,5 +128,16 @@ public class FragmentMine extends Fragment {
         mMineUsername = getActivity().findViewById(R.id.mine_username);
       //  mMineNickname = getActivity().findViewById(R.id.mine_nickname);
         mLogOut = getActivity().findViewById(R.id.login_out);
+
+        mMyinfo = getActivity().findViewById(R.id.my_info);
+
+        //我发布的帖子
+        mMyPush = getActivity().findViewById(R.id.my_push);
+
+        //我创建的论坛
+        mMy_community = getActivity().findViewById(R.id.my_community);
+
+        //我收藏的帖子
+        mMy_collection = getActivity().findViewById(R.id.my_collection);
     }
 }

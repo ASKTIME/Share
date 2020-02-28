@@ -5,7 +5,8 @@
     android:orientation="vertical">
 
 
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
+        android:orientation="horizontal"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -18,20 +19,28 @@
             android:layout_marginLeft="10dp"
             android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/back"
-            android:tint="#000" />
+            android:tint="@color/black" />
 
         <TextView
             android:id="@+id/hot_news"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="30dp"
             android:paddingLeft="15dp"
             android:text="热门动态"
             android:textColor="@color/black"
+            android:layout_weight="1"
             android:textSize="20sp" />
+        <ImageView
+            android:id="@+id/sc_normal"
+            android:layout_margin="10dp"
+            android:tint="@color/black"
+            android:src="@drawable/sc_normal"
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
 
 
 
-    </android.support.v7.widget.Toolbar>
+    </LinearLayout>
 
 
     <LinearLayout

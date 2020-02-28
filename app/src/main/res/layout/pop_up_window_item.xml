@@ -13,7 +13,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/blue"
         android:clickable="true"
         android:src="@drawable/add_write" />
 
@@ -25,7 +25,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/blue"
         android:clickable="true"
         android:src="@drawable/add_community" />
 

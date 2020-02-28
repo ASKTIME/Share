@@ -46,6 +46,10 @@
         <activity android:name=".activity.Accept" />
         <activity android:name=".activity.PushContent" />
         <activity android:name=".activity.PushCommunity" />
+        <activity android:name=".activity.MyInfo" />
+        <activity android:name=".activity.MyPush" />
+        <activity android:name=".activity.MyCommunity" />
+        <activity android:name=".activity.MyCollection" />
     </application>
 
 
